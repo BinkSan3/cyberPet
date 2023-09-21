@@ -1,3 +1,7 @@
 .disappearing {
   display: none;
 }
+
+#nameSubmission {
+  display: none;
+}

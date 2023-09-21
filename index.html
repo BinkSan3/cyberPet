@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>Cyber Pet</h1>
+    <h1 id="mainText"></h1>
 
     <nav class="hide" id="top">
       <h2>Choose an Animal</h2>
@@ -26,36 +27,40 @@
       <input id="petBox" type="text" />
       <input id="submitName" type="submit" />
     </div>
+    <h3 class="name" id="petName"></h3>
 
     <section id="pageTwo">
       <div class="disappearing" id="rabbit">
-        <h3 class="name" id="rabbitName"></h3>
-        <img src="" alt="image of rabbit" />
-        <p>Health : <span id="healthNumber"></span></p>
-        <p>Ear Droop: <span class="happinessNumber"></span></p>
+        <img
+          id="rabbitEars"
+          src="./assets/rabbitUp.svg"
+          alt="image of rabbit"
+        />
+        <!-- <p>Health : <span id="healthNumber"></span></p>
+        <p>Happiness: <span id="happinessNumber"></span></p> -->
+        <button id="feedbtn">FEED</button>
+        <button id="happybtn">BURROW</button>
       </div>
-      <button id="feedbtn">FEED</button>
-      <button>BURROW</button>
 
       <div class="disappearing" id="cat">
-        <h3 class="name"></h3>
-        <img src="" alt="image of cat" />
+        <img src="./assets/cat.svg" alt="image of cat" />
 
-        <p>Health : <span id="healthNumber"></span></p>
-        <p>Purr: <span class="happinessNumber"></span></p>
+        <!-- <p>Health : <span id="healthNumber"></span></p>
+        <p>Purr: <span id="happinessNumber"></span></p> -->
+        <button id="feedbtn">FEED</button>
+        <button id="happybtn">PLAY WOOL</button>
       </div>
-      <button>FEED</button>
-      <button>PLAY WOOL</button>
 
       <div class="disappearing" id="cham">
-        <h3 class="name"></h3>
         <img src="./assets/chameleon.svg" alt="image of cham" />
 
-        <p>Health : <span id="healthNumber"></span></p>
-        <p>Change color: <span class="happinessNumber"></span></p>
+        <!-- <p>Health : <span id="healthNumber"></span></p>
+        <p>Change color: <span id="happinessNumber"></span></p> -->
+        <button id="feedbtn">FEED</button>
+        <button id="happybtn">CLIMB</button>
       </div>
-      <button>FEED</button>
-      <button>CLIMB</button>
+      <p>Health : <span id="healthNumber"></span></p>
+      <p>Happiness: <span id="happinessNumber"></span></p>
     </section>
 
     <script src="./script.js"></script>
