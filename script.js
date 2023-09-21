@@ -17,15 +17,17 @@ let healthDown = document.getElementById(`healthNumber`);
 let mainText = document.getElementById(`mainText`);
 
 let happinessNumber = document.getElementById(`happinessNumber`);
-const happybtn = document.getElementById(`happybtn`);
+const happybtn = document.querySelectorAll(`.happybtn`);
 
 const nameSubmission = document.getElementById("nameSubmission");
 const petBox = document.getElementById("petBox");
 const submitName = document.getElementById("submitName");
 
-const feedbtn = document.getElementById(`feedbtn`);
+const feedbtn = document.querySelectorAll(`.feedbtn`);
 let petName = document.getElementById("petName");
 let rabbitEars = document.getElementById("rabbitEars");
+let cattPurr = document.getElementById("catPurr");
+let changeColor = document.getElementById("changeColor");
 
 for (i = 0; i < mainButtons.length; i++) {
   mainButtons[i].addEventListener(`click`, () => {
@@ -39,8 +41,9 @@ health = () => {
   setInterval(() => {
     console.log(newPet.health);
     healthDown.innerHTML = newPet.health;
-    newPet.health -= 10;
-  }, 3000);
+    newPet.health -= 2;
+    newPet.checkHealth();
+  }, 250);
 };
 
 happinessNumber.innerHTML = 100;
@@ -48,8 +51,8 @@ happiness = () => {
   setInterval(() => {
     console.log(newPet.happy);
     happinessNumber.innerHTML = newPet.happy;
-    newPet.happy -= 10;
-  }, 1000);
+    newPet.happy -= 2;
+  }, 150);
 };
 
 class animal {
@@ -73,6 +76,14 @@ class rabbit extends animal {
     this.happy += 10;
     return this;
   }
+  special() {
+    this.burrow();
+  }
+  checkHealth() {
+    if (this.health <= 70) {
+      console.log("droopy ears");
+    }
+  }
 }
 
 class cat extends animal {
@@ -84,6 +95,34 @@ class cat extends animal {
     this.health -= 5;
     this.happy += 10;
     return this;
+  }
+  special() {
+    this.purr();
+  }
+  checkHealth() {
+    if (this.health <= 70) {
+      console.log("droopy ears");
+    }
+  }
+}
+
+class cham extends animal {
+  constructor() {
+    super();
+    this.happy = 100;
+  }
+  changeColor() {
+    this.health -= 5;
+    this.happy += 10;
+    return this;
+  }
+  special() {
+    this.changeColor();
+  }
+  checkHealth() {
+    if (this.health <= 70) {
+      console.log("droopy ears");
+    }
   }
 }
 
@@ -99,6 +138,9 @@ catButton.addEventListener(`click`, () => {
   newPet = new cat();
   catDiv.style.display = "block";
 });
+chamButton.addEventListener(`click`, () => {
+  newPet = new cham();
+});
 
 submitName.addEventListener("click", () => {
   newPet.name = petBox.value;
@@ -108,12 +150,18 @@ submitName.addEventListener("click", () => {
   happiness();
 });
 
-feedbtn.addEventListener(`click`, () => {
-  newPet.eat();
+// happybtn.addEventListener(`click`, () => {
+//   newPet.burrow();
+// });
+
+feedbtn.forEach((btnValue) => {
+  btnValue.addEventListener(`click`, () => {
+    newPet.eat();
+  });
 });
 
-happybtn.addEventListener(`click`, () => {
-  newPet.burrow();
+happybtn.forEach((happyValue) => {
+  happyValue.addEventListener(`click`, () => {
+    newPet.special();
+  });
 });
-
-// cat
