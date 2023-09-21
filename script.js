@@ -13,10 +13,10 @@ const chamButton = document.getElementById("chamButton");
 const rabbitDiv = document.getElementById("rabbit");
 const catDiv = document.getElementById("cat");
 const chamDiv = document.getElementById("cham");
-
+let healthDown = document.getElementById(`healthNumber`);
 const petBox = document.getElementById("petBox");
 const submitName = document.getElementById("submitName");
-
+const feedbtn = document.getElementById(`feedbtn`);
 let rabbitName = document.getElementById("rabbitName");
 
 for (i = 0; i < mainButtons.length; i++) {
@@ -25,9 +25,14 @@ for (i = 0; i < mainButtons.length; i++) {
   });
 }
 
-// submitName.addEventListener ('click', () => {
-//     let petName = petBox.textContent
-// })
+healthDown.innerHTML = 100;
+health = () => {
+  setInterval(() => {
+    console.log(newPet.health);
+    healthDown.innerHTML = newPet.health;
+    newPet.health -= 10;
+  }, 1000);
+};
 
 class animal {
   constructor() {
@@ -42,10 +47,8 @@ class animal {
     this.health += 5;
     return this;
   }
-  healthdown() {
-    this.health -= 10;
-  }
 }
+
 class rabbit extends animal {
   constructor() {
     super();
@@ -62,7 +65,6 @@ let newPet = null;
 
 rabbitButton.addEventListener("click", () => {
   newPet = new rabbit();
-
   //submitt button will appear
 });
 
@@ -70,6 +72,9 @@ submitName.addEventListener("click", () => {
   newPet.name = petBox.value;
   rabbitName.textContent = newPet.name;
   rabbitDiv.style.display = "block";
+  health();
 });
-// const newName = new Rabbit(petBox.textContent);
-// newName.burrow();
+
+feedbtn.addEventListener(`click`, () => {
+  newPet.drink();
+});
