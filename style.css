@@ -41,3 +41,54 @@
   display: none;
   flex-direction: column;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+}
+
+#reload {
+  display: none;
+}
+
+#risingImage {
+  display: none;
+}
+
+#top h2 {
+  text-align: center;
+}
+
+button {
+  border: solid 7px blueviolet;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: aquamarine;
+  color: blue;
+  font-family: "Rokkitt", serif;
+  font-weight: 700;
+  padding: 10px;
+}
+
+/* .container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+.container img {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
+}
+
+.animate {
+  opacity: 1;
+  transform: translateY(-100%);
+} */
