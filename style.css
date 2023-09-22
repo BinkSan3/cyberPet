@@ -5,3 +5,39 @@
 #nameSubmission {
   display: none;
 }
+
+#divDisplay {
+  display: none;
+  flex-direction: column;
+}
+
+.static {
+  box-sizing: border-box;
+  height: 30px;
+  width: 200px;
+  padding: 3px;
+  margin: 5px;
+  background-color: grey;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#healthBar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}
+
+#happinessBar {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}
+
+#barDisplay {
+  display: none;
+  flex-direction: column;
+}
