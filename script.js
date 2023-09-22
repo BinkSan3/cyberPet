@@ -14,20 +14,25 @@ const rabbitDiv = document.getElementById("rabbit");
 const catDiv = document.getElementById("cat");
 const chamDiv = document.getElementById("cham");
 
+const nameSubmission = document.getElementById("nameSubmission");
 const petBox = document.getElementById("petBox");
 const submitName = document.getElementById("submitName");
 
 let rabbitName = document.getElementById("rabbitName");
 
+let animalType = null;
+
 for (i = 0; i < mainButtons.length; i++) {
-  mainButtons[i].addEventListener(`click`, () => {
+  mainButtons[i].addEventListener(`click`, function (event) {
     navBar.style.display = "none";
+    nameSubmission.style.display = "flex";
+
+    // animalType = mainButtons[i].id;
+    // console.log(animalType);
+
+    // newPet = new animalType();
   });
 }
-
-// submitName.addEventListener ('click', () => {
-//     let petName = petBox.textContent
-// })
 
 class animal {
   constructor() {
@@ -57,19 +62,18 @@ class rabbit extends animal {
   }
 }
 
-// let anyName = new rabbit();
 let newPet = null;
 
 rabbitButton.addEventListener("click", () => {
   newPet = new rabbit();
-
-  //submitt button will appear
 });
 
 submitName.addEventListener("click", () => {
   newPet.name = petBox.value;
   rabbitName.textContent = newPet.name;
   rabbitDiv.style.display = "block";
+  nameSubmission.style.display = "none";
 });
+
 // const newName = new Rabbit(petBox.textContent);
 // newName.burrow();
