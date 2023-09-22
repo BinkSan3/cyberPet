@@ -22,6 +22,7 @@ let happinessNumber = document.getElementById(`happinessNumber`);
 const happybtn = document.querySelectorAll(`.happybtn`);
 let barDisplay = document.getElementById(`barDisplay`);
 let catAudio = document.getElementById(`catAudio`);
+let chamImage = document.getElementById(`chamImage`);
 
 const nameSubmission = document.getElementById("nameSubmission");
 const petBox = document.getElementById("petBox");
@@ -110,15 +111,15 @@ class rabbit extends animal {
   }
   checkHappy() {
     if (this.happy <= 34) {
-      rabbitEars.src = "./assets/rabbitMid.svg";
+      // rabbitEars.src = "./assets/rabbitMid.svg";
       happinessBar.style.backgroundColor = `red`;
     } else if (this.happy <= 70) {
-      rabbitEars.src = "./assets/rabbitDown.svg";
+      // rabbitEars.src = "./assets/rabbitDown.svg";
       happinessBar.style.backgroundColor = `yellow`;
     } else if (this.happy == 0) {
       ("display death screen");
     } else {
-      rabbitEars.src = "./assets/rabbitUp.svg";
+      // rabbitEars.src = "./assets/rabbitUp.svg";
       happinessBar.style.backgroundColor = `green`;
     }
   }
@@ -161,15 +162,15 @@ class cat extends animal {
   }
   checkHappy() {
     if (this.happy <= 34) {
-      rabbitEars.src = "./assets/meow.mp3";
+      // rabbitEars.src = "./assets/meow.mp3";
       happinessBar.style.backgroundColor = `red`;
     } else if (this.happy <= 70) {
-      rabbitEars.src = "./assets/growlingCat.mp3";
+      // rabbitEars.src = "./assets/growlingCat.mp3";
       happinessBar.style.backgroundColor = `yellow`;
     } else if (this.happy == 0) {
       ("display death screen");
     } else {
-      rabbitEars.src = "./assets/dyingMeow.mp3";
+      // rabbitEars.src = "./assets/dyingMeow.mp3";
       happinessBar.style.backgroundColor = `green`;
     }
   }
@@ -190,29 +191,29 @@ class cham extends animal {
   }
   checkHealth() {
     if (this.health <= 34) {
-      rabbitEars.src = "./assets/chameleon.svg";
+      chamImage.src = "./assets/chameleon.svg";
       healthBar.style.backgroundColor = `red`;
     } else if (this.health <= 70) {
-      rabbitEars.src = "./assets/chameleon.svg";
+      chamImage.src = "./assets/chameleon.svg";
       healthBar.style.backgroundColor = `yellow`;
     } else if (this.health == 0) {
       ("display death screen");
     } else {
-      rabbitEars.src = "./assets/chameleon.svg";
+      chamImage.src = "./assets/chameleon.svg";
       healthBar.style.backgroundColor = `green`;
     }
   }
   checkHappy() {
     if (this.happy <= 34) {
-      rabbitEars.src = "./assets/chameleon.svg";
+      // rabbitEars.src = "./assets/chameleon.svg";
       happinessBar.style.backgroundColor = `red`;
     } else if (this.happy <= 70) {
-      rabbitEars.src = "./assets/chameleon.svg";
+      // rabbitEars.src = "./assets/chameleon.svg";
       happinessBar.style.backgroundColor = `yellow`;
     } else if (this.happy == 0) {
       ("display death screen");
     } else {
-      rabbitEars.src = "./assets/chameleon.svg";
+      // rabbitEars.src = "./assets/chameleon.svg";
       happinessBar.style.backgroundColor = `green`;
     }
   }
@@ -250,10 +251,6 @@ submitName.addEventListener("click", () => {
   happiness();
   catAudioLoop();
 });
-
-// happybtn.addEventListener(`click`, () => {
-//   newPet.burrow();
-// });
 
 feedbtn.forEach((btnValue) => {
   btnValue.addEventListener(`click`, () => {
