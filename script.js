@@ -183,6 +183,7 @@ class cham extends animal {
   special() {
     this.changeColor();
   }
+
   // checkCham() {
   //   if (this.happy <= 100 && this.happy >= 70) {
   //     chamImage.src = "./assets/chameleon.svg";
@@ -192,6 +193,8 @@ class cham extends animal {
   //     chamImage.src = "./assets/chamRed.svg";
   //   }
   // }
+
+ 
 }
 
 // let anyName = new rabbit();
@@ -224,11 +227,11 @@ submitName.addEventListener("click", () => {
   petName.textContent = newPet.name;
   nameSubmission.style.display = "none";
   health();
-});
 
-// happybtn.addEventListener(`click`, () => {
-//   newPet.burrow();
-// });
+
+  catAudioLoop();
+
+});
 
 feedbtn.forEach((btnValue) => {
   btnValue.addEventListener(`click`, () => {
