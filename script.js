@@ -39,6 +39,7 @@ for (i = 0; i < mainButtons.length; i++) {
     nameSubmission.style.display = "flex";
   });
 }
+happinessNumber.innerHTML = 100;
 
 healthDown.innerHTML = 100;
 health = () => {
@@ -48,19 +49,13 @@ health = () => {
     newPet.health -= 1;
     healthBar.style.width = `${newPet.health}%`;
 
-    newPet.checkHealth();
-  }, 150);
-};
-
-happinessNumber.innerHTML = 100;
-happiness = () => {
-  setInterval(() => {
-    console.log(newPet.happy);
     happinessNumber.innerHTML = newPet.happy;
     newPet.happy -= 2;
     happinessBar.style.width = `${newPet.happy}%`;
 
     newPet.checkHappy();
+    newPet.checkHealth();
+    newPet.rabbitHappy();
   }, 150);
 };
 
@@ -79,6 +74,26 @@ class animal {
     this.health += 4;
     return this;
   }
+
+  checkHealth() {
+    if (this.health <= 34) {
+      healthBar.style.backgroundColor = `red`;
+    } else if (this.health <= 70) {
+      healthBar.style.backgroundColor = `yellow`;
+    } else healthBar.style.backgroundColor = `green`;
+  }
+
+  checkHappy() {
+    if (this.happy <= 34) {
+      happinessBar.style.backgroundColor = `red`;
+    } else if (this.happy <= 70) {
+      happinessBar.style.backgroundColor = `yellow`;
+    } else if (this.happy == 0) {
+      ("display death screen");
+    } else {
+      happinessBar.style.backgroundColor = `green`;
+    }
+  }
 }
 
 class rabbit extends animal {
@@ -94,32 +109,15 @@ class rabbit extends animal {
   special() {
     this.burrow();
   }
-  checkHealth() {
-    if (this.health <= 34) {
-      rabbitEars.src = "./assets/rabbitMid.svg";
-      healthBar.style.backgroundColor = `red`;
-    } else if (this.health <= 70) {
-      rabbitEars.src = "./assets/rabbitDown.svg";
-      healthBar.style.backgroundColor = `yellow`;
-    } else if (this.health == 0) {
-      ("display death screen");
-    } else {
-      rabbitEars.src = "./assets/rabbitUp.svg";
-      healthBar.style.backgroundColor = `green`;
-    }
-  }
-  checkHappy() {
+  rabbitHappy() {
     if (this.happy <= 34) {
-      rabbitEars.src = "./assets/rabbitMid.svg";
-      happinessBar.style.backgroundColor = `red`;
-    } else if (this.happy <= 70) {
       rabbitEars.src = "./assets/rabbitDown.svg";
-      happinessBar.style.backgroundColor = `yellow`;
-    } else if (this.happy == 0) {
+    } else if (this.happy <= 70) {
+      rabbitEars.src = "./assets/rabbitMid.svg";
+    } else if (this.happy <= 0) {
       ("display death screen");
     } else {
       rabbitEars.src = "./assets/rabbitUp.svg";
-      happinessBar.style.backgroundColor = `green`;
     }
   }
 }
@@ -137,15 +135,6 @@ class cat extends animal {
   special() {
     this.purr();
   }
-  checkHealth() {
-    if (this.health <= 34) {
-      // catAudio.src = "./assets/meow.mp3";
-      healthBar.style.backgroundColor = `red`;
-    } else if (this.health <= 70) {
-      healthBar.style.backgroundColor = `yellow`;
-      // catAudio.src = "./assets/growlingCat.mp3";
-    } else healthBar.style.backgroundColor = `green`;
-  }
 
   checkAudio() {
     if (this.health <= 34) {
@@ -157,20 +146,6 @@ class cat extends animal {
     } else if (this.health <= 0) {
       catAudio.src = "./assets/dyingMeow.mp3";
       catAudio.play();
-    }
-  }
-  checkHappy() {
-    if (this.happy <= 34) {
-      rabbitEars.src = "./assets/meow.mp3";
-      happinessBar.style.backgroundColor = `red`;
-    } else if (this.happy <= 70) {
-      rabbitEars.src = "./assets/growlingCat.mp3";
-      happinessBar.style.backgroundColor = `yellow`;
-    } else if (this.happy == 0) {
-      ("display death screen");
-    } else {
-      rabbitEars.src = "./assets/dyingMeow.mp3";
-      happinessBar.style.backgroundColor = `green`;
     }
   }
 }
