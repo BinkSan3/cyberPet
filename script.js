@@ -64,6 +64,12 @@ happiness = () => {
   }, 150);
 };
 
+catAudioLoop = () => {
+  setInterval(() => {
+    newPet.checkAudio();
+  }, 2000);
+};
+
 class animal {
   constructor() {
     this.name = null;
@@ -133,14 +139,22 @@ class cat extends animal {
   }
   checkHealth() {
     if (this.health <= 34) {
+      // catAudio.src = "./assets/meow.mp3";
+      healthBar.style.backgroundColor = `red`;
+    } else if (this.health <= 70) {
+      healthBar.style.backgroundColor = `yellow`;
+      // catAudio.src = "./assets/growlingCat.mp3";
+    } else healthBar.style.backgroundColor = `green`;
+  }
+
+  checkAudio() {
+    if (this.health <= 34) {
       catAudio.src = "./assets/meow.mp3";
       catAudio.play();
-      healthBar.style.backgroundColor = `yellow`;
     } else if (this.health <= 70) {
       catAudio.src = "./assets/growlingCat.mp3";
       catAudio.play();
-      healthBar.style.backgroundColor = `red`;
-    } else if (this.health == 0) {
+    } else if (this.health <= 0) {
       catAudio.src = "./assets/dyingMeow.mp3";
       catAudio.play();
     }
@@ -234,6 +248,7 @@ submitName.addEventListener("click", () => {
   nameSubmission.style.display = "none";
   health();
   happiness();
+  catAudioLoop();
 });
 
 // happybtn.addEventListener(`click`, () => {
