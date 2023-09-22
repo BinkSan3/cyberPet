@@ -166,10 +166,10 @@ class cham extends animal {
   }
   checkHealth() {
     if (this.health <= 34) {
-      chamImage.src = "./assets/chameleon.svg";
+      chamImage.src = "./assets/chamRed.svg";
       healthBar.style.backgroundColor = `red`;
     } else if (this.health <= 70) {
-      chamImage.src = "./assets/chameleon.svg";
+      chamImage.src = "./assets/chameleonYellow.svg";
       healthBar.style.backgroundColor = `yellow`;
     } else if (this.health == 0) {
       ("display death screen");
@@ -223,7 +223,6 @@ submitName.addEventListener("click", () => {
   petName.textContent = newPet.name;
   nameSubmission.style.display = "none";
   health();
-  happiness();
   catAudioLoop();
 });
 
